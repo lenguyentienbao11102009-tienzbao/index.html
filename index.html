@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #f6d365, #fda085);
-            color: #333;
+            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            color: #fff;
             text-align: center;
         }
         .container {
@@ -21,31 +21,41 @@
         .btn {
             padding: 12px 20px;
             margin: 10px;
-            background: #ff5722;
+            background: #4facfe;
             color: #fff;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 50px;
             transition: 0.3s;
+            font-size: 16px;
         }
         .btn:hover {
-            background: #e64a19;
+            background: #00f2fe;
         }
         .hidden {
             display: none;
         }
         .card {
             background: #fff;
+            color: #333;
             margin: 15px auto;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 85%;
             max-width: 400px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         a {
-            color: #ff5722;
+            color: #6a11cb;
             text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
