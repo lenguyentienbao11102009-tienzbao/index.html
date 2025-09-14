@@ -4,143 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienzbaouplocketgold</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ffcc70, #ff8177);
-            text-align: center;
-            color: white;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --text-color: #333;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
         }
-        header {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
-        }
-        h1 {
-            margin: 0;
-            font-size: 40px;
-        }
-        p {
-            font-size: 20px;
-        }
-        button {
-            background: white;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: black;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to Tienzbaouplocketgold</h1>
-        <p>Website đầu tiên của bạn trên GitHub Pages 🎉</p>
-        <button onclick="alert('Chào mừng bạn đến với website!')">Bấm vào đây</button>
-    </header>
-</body>
-</html>
-<head>
-    <style>
-        /* CSS của bạn ở đây */
-        body {
-            background-color: #f0f0f0;
-            font-family: sans-serif;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            transition: color 0.3s; /* Hiệu ứng chuyển đổi màu */
-        }
-        h1:hover {
-            color: #ff5733; /* Khi di chuột vào, màu sẽ đổi */
-        }
-    </style>
-</head>
-<body>
-    <h1>Chào mừng đến với trang wed hỗ trợ up locketgold</h1>
 
-    <button id="myButton">Nhấp vào đây</button>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            animation: background-animate 15s ease infinite;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: scaleIn 0.8s ease-out forwards;
+            position: relative;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        h1.welcome-text {
+            animation: text-pop-up 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-section {
+            display: none; /* Ban đầu ẩn phần này */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .contact-list li {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+        }
+
+        .phone-number {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes background-animate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes text-pop-up {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="welcome-text">Chào mừng bạn đến với trang web hỗ trợ up locketgold</h1>
+        
+        <button class="cta-button" id="toggleButton">Bấm tại đây</button>
+
+        <div id="contactInfo" class="contact-section">
+            <h2>Liên hệ với tôi</h2>
+            <ul class="contact-list">
+                <li><a href="https://www.facebook.com/share/1FmwSoUbWo/?mibextid=wwXIfr" target="_blank">Facebook của tôi</a></li>
+                <li><a href="https://www.tiktok.com/@tatcaseviem?_t=ZS-8zhtvDkQxGM&_r=1" target="_blank">TikTok của tôi</a></li>
+                <li><a href="https://zalo.me/0859135800" target="_blank">Zalo của tôi</a></li>
+                <li><span class="phone-number">Số điện thoại Zalo: 0859135800</span></li>
+            </ul>
+        </div>
+    </div>
 
     <script>
-        // JavaScript của bạn ở đây
-        document.getElementById("myButton").addEventListener("click", function() {
-            alert("Bạn đã nhấp vào nút!");
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            var contactInfo = document.getElementById("contactInfo");
+            if (contactInfo.style.display === "none" || contactInfo.style.display === "") {
+                contactInfo.style.display = "block";
+                setTimeout(function() {
+                    contactInfo.style.opacity = "1";
+                }, 10);
+            } else {
+                contactInfo.style.opacity = "0";
+                setTimeout(function() {
+                    contactInfo.style.display = "none";
+                }, 500); // Phải khớp với thời gian transition
+            }
         });
     </script>
+
 </body>
-<style>
-  body {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); /* Thay đổi màu nền gradient */
-    color: #333;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Màu nền trong suốt */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 2s; /* Thêm hiệu ứng xuất hiện mượt mà */
-  }
-  h1 {
-    color: #d6336c;
-  }
-  button {
-    background-color: #d6336c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s; /* Hiệu ứng khi di chuột vào */
-  }
-  button:hover {
-    transform: scale(1.1); /* Phóng to nút khi di chuột vào */
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-<script>
-  document.getElementById("myButton").addEventListener("click", function() {
-    alert("Chào mừng bạn đã đến với trang wed hỗ trợ up locket gold!");
-  });
-</script>
-<div class="contact-links" style="margin-top: 20px;">
-    <h2>Liên hệ với tôi</h2>
-    <p>
-        <a href="https://www.facebook.com/share/1FmwSoUbWo/?mibextid=wwXIfr" target="_blank">Facebook của tôi</a>
-    </p>
-    <p>
-        <a href="https://www.tiktok.com/@tatcaseviem?_t=ZS-8zhtvDkQxGM&_r=1" target="_blank">TikTok của tôi</a>
-    </p>
-    <p>
-        <a href="https://zalo.me/0859135800" target="_blank">Zalo của tôi</a>
-    </p>
-    <p>
-        Số điện thoại Zalo: 0859135800
-    </p>
-</div>
+</html>
 
 
 
