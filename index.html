@@ -9,65 +9,31 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(120deg, #f6d365, #fda085);
-            color: #333;
             text-align: center;
         }
-        .container {
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            margin: 10px 0;
-        }
+        .container { padding: 20px; }
         .btn {
-            padding: 12px 20px;
-            margin: 10px;
-            background: #ff5722;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
+            padding: 10px 20px; margin: 5px;
+            background: #ff5722; color: #fff; border: none; cursor: pointer;
+            border-radius: 5px; transition: 0.3s;
         }
-        .btn:hover {
-            background: #e64a19;
-        }
-        .hidden {
-            display: none;
-        }
-        .card {
-            background: #fff;
-            margin: 15px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            width: 85%;
-            max-width: 400px;
-        }
-        input {
-            padding: 10px;
-            margin: 5px;
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        a {
-            color: #ff5722;
-            text-decoration: none;
-        }
+        .btn:hover { background: #e64a19; }
+        .hidden { display: none; }
+        input { padding: 10px; margin: 5px; width: 80%; }
+        .card { background: #fff; margin: 10px auto; padding: 15px; border-radius: 10px; width: 85%; max-width: 400px; }
     </style>
 </head>
 <body>
 
 <div class="container" id="welcome">
     <h1>Xin chào!</h1>
-    <p>Chào mừng đến với dịch vụ Locket Gold</p>
     <button class="btn" onclick="showLogin()">Bắt đầu</button>
 </div>
 
 <div class="container hidden" id="login">
     <h2>Đăng nhập / Đăng ký</h2>
-    <input type="email" id="email" placeholder="Nhập email"><br>
-    <input type="password" id="password" placeholder="Nhập mật khẩu"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Mật khẩu"><br>
     <button class="btn" onclick="login()">Đăng nhập</button>
     <button class="btn" onclick="register()">Đăng ký</button>
 </div>
@@ -78,86 +44,60 @@
         <h3>Bảng giá</h3>
         <p>Locket iOS: 20K</p>
         <p>Locket Android: 15K</p>
-        <p>Bảo hành 12 tháng</p>
-        <p>Không can thiệp ID Apple</p>
-        <p>Bảo mật riêng tư tuyệt đối</p>
     </div>
-
-    <div class="card">
-        <h3>Chọn dịch vụ</h3>
-        <button class="btn">Locket iOS</button>
-        <button class="btn">Locket Android</button>
-    </div>
-
-    <div class="card">
-        <h3>Thông tin liên hệ</h3>
-        <p>TikTok: <a href="https://www.tiktok.com/@locketgolduytin2267" target="_blank">locketgolduytin2267</a></p>
-        <p>Zalo: 0859135800</p>
-    </div>
-
     <div class="card">
         <h3>Thông tin chuyển khoản</h3>
-        <p>Ngân hàng ACB</p>
-        <p>Số tài khoản: 46756097</p>
-        <p>Chủ tài khoản: Lê Nguyễn Tiến Bảo</p>
+        <p>ACB - 46756097</p>
+        <p>Lê Nguyễn Tiến Bảo</p>
     </div>
 </div>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+<!-- Firebase v9 -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
-<script>
-  // Config Firebase của bạn
-  const firebaseConfig = {
-    apiKey: "AIzaSyBGZLa316uvnCeXPF3UeKmEsgKFghMTj",
-    authDomain: "locketgold-40f57.firebaseapp.com",
-    projectId: "locketgold-40f57",
-    storageBucket: "locketgold-40f57.appspot.com",
-    messagingSenderId: "1016272793803",
-    appId: "1:1016272793803:web:a4b896242002fb108ce",
-    measurementId: "G-9GBMZYR85H"
-  };
+    const firebaseConfig = {
+        apiKey: "AIzaSyBGZLa316uvnCeXPF3UeKmEsgKFghMTj",
+        authDomain: "locketgold-40f57.firebaseapp.com",
+        projectId: "locketgold-40f57",
+        storageBucket: "locketgold-40f57.appspot.com",
+        messagingSenderId: "1016272793803",
+        appId: "1:1016272793803:web:a4b896242002fb108ce",
+        measurementId: "G-9GBMZYR85H"
+    };
 
-  // Khởi tạo Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-  // Chuyển trang
-  function showLogin() {
-    document.getElementById("welcome").classList.add("hidden");
-    document.getElementById("login").classList.remove("hidden");
-  }
+    window.showLogin = function() {
+        document.getElementById("welcome").classList.add("hidden");
+        document.getElementById("login").classList.remove("hidden");
+    }
 
-  function showMain() {
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("main").classList.remove("hidden");
-  }
+    window.login = function() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                alert("Đăng nhập thành công!");
+                document.getElementById("login").classList.add("hidden");
+                document.getElementById("main").classList.remove("hidden");
+            })
+            .catch(err => alert(err.message));
+    }
 
-  // Đăng ký
-  function register() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Đăng ký thành công!");
-        showMain();
-      })
-      .catch(err => alert(err.message));
-  }
-
-  // Đăng nhập
-  function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Đăng nhập thành công!");
-        showMain();
-      })
-      .catch(err => alert(err.message));
-  }
+    window.register = function() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                alert("Đăng ký thành công!");
+                document.getElementById("login").classList.add("hidden");
+                document.getElementById("main").classList.remove("hidden");
+            })
+            .catch(err => alert(err.message));
+    }
 </script>
-
 </body>
 </html>
