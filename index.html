@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Locket Gold & Tương tác - Bảo</title>
+<title>Locket Gold - TIẾN BẢO</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -19,16 +19,20 @@
     }
     .container {
         text-align: center;
-        max-width: 650px;
+        max-width: 600px;
         width: 90%;
-        padding: 30px;
+        padding: 40px;
         border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         margin-top: 50px;
+        transition: transform 0.3s;
+    }
+    .container:hover {
+        transform: translateY(-5px);
     }
     h1 {
         font-size: 28px;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         opacity: 0;
         animation: fadeIn 2s forwards;
     }
@@ -40,7 +44,7 @@
         background-color: #0077cc;
         color: #fff;
         border: none;
-        padding: 15px 30px;
+        padding: 15px 35px;
         margin: 10px;
         border-radius: 8px;
         cursor: pointer;
@@ -55,8 +59,8 @@
         margin-top: 30px;
         text-align: left;
         background-color: #f0f8ff;
-        padding: 20px;
-        border-radius: 10px;
+        padding: 25px;
+        border-radius: 12px;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -69,7 +73,12 @@
         transform: translateY(0);
     }
     .info p, .info li {
-        margin: 10px 0;
+        margin: 12px 0;
+    }
+    .info ul li {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: fadeSlide 0.5s forwards;
     }
     a {
         color: #0077cc;
@@ -91,7 +100,6 @@
     <h1>Chào bạn đến với trang web của chúng tôi!</h1>
     <div class="buttons">
         <button class="button" onclick="showLocketGold()">Up Locket Gold</button>
-        <button class="button" onclick="showInteraction()">Kéo tương tác Facebook/TikTok</button>
         <button class="button" onclick="showBank()">Tài khoản ngân hàng</button>
     </div>
     <div id="info" class="info"></div>
@@ -105,7 +113,6 @@ function showLocketGold() {
         <h2>Thông tin Locket Gold</h2>
         <p><strong>Android:</strong> 15k</p>
         <p><strong>iOS:</strong> 20k</p>
-        <p><strong>Số tài khoản (STK):</strong> 46756097</p>
         <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
         <h3>Cam kết 3 không</h3>
         <ul>
@@ -115,18 +122,11 @@ function showLocketGold() {
         </ul>
     `;
     info.classList.add('show');
-}
-
-function showInteraction() {
-    const info = document.getElementById('info');
-    info.innerHTML = `
-        <h2>Dịch vụ tương tác Facebook/TikTok</h2>
-        <p><strong>100 follow:</strong> 4.5k</p>
-        <p><strong>100 tim:</strong> 1k</p>
-        <p><strong>Số tài khoản (STK):</strong> 46756097</p>
-        <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
-    `;
-    info.classList.add('show');
+    // Thêm hiệu ứng delay từng li
+    const items = info.querySelectorAll('ul li');
+    items.forEach((li, index) => {
+        li.style.animationDelay = `${index * 0.3}s`;
+    });
 }
 
 function showBank() {
@@ -140,5 +140,12 @@ function showBank() {
     info.classList.add('show');
 }
 </script>
+
+<style>
+@keyframes fadeSlide {
+    from {opacity: 0; transform: translateX(-20px);}
+    to {opacity: 1; transform: translateX(0);}
+}
+</style>
 </body>
 </html>
