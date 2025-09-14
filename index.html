@@ -174,6 +174,222 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienzbaouplocketgold</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --text-color: #333;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            animation: background-animate 15s ease infinite;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: scaleIn 0.8s ease-out forwards;
+            position: relative;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        h1.welcome-text {
+            animation: text-pop-up 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .contact-list li {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+        }
+
+        .phone-number {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        /* Warranty Section CSS */
+        .warranty-section {
+            background-color: #333; /* Nền đen */
+            color: #fff; /* Chữ trắng */
+            border: 2px solid #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            text-align: left;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .warranty-section h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .warranty-section p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .warranty-section p:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes background-animate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes text-pop-up {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="welcome-text">Chào mừng bạn đến với trang web hỗ trợ up locketgold</h1>
+        
+        <button class="cta-button" id="toggleButton">Bấm tại đây</button>
+
+        <div id="contactInfo" class="contact-section">
+            <h2>Liên hệ với tôi</h2>
+            <ul class="contact-list">
+                <li><a href="https://www.facebook.com/share/1FmwSoUbWo/?mibextid=wwXIfr" target="_blank">Facebook của tôi</a></li>
+                <li><a href="https://www.tiktok.com/@tatcaseviem?_t=ZS-8zhtvDkQxGM&_r=1" target="_blank">TikTok của tôi</a></li>
+                <li><a href="https://zalo.me/0859135800" target="_blank">Zalo của tôi</a></li>
+                <li><span class="phone-number">Số điện thoại Zalo: 0859135800</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="warranty-section">
+        <h2>Chế độ bảo hành</h2>
+        <p>Bảo hành 12 tháng</p>
+        <p>Không vào apple id</p>
+        <p>Không khóa máy ( nếu khóa đến x100 lần )</p>
+        <p>Chỉ vào app store id</p>
+        <p>Cre: Tienz Bao</p>
+    </div>
+
+    <script>
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            var contactInfo = document.getElementById("contactInfo");
+            if (contactInfo.style.display === "none" || contactInfo.style.display === "") {
+                contactInfo.style.display = "block";
+                setTimeout(function() {
+                    contactInfo.style.opacity = "1";
+                }, 10);
+            } else {
+                contactInfo.style.opacity = "0";
+                setTimeout(function() {
+                    contactInfo.style.display = "none";
+                }, 500);
+            }
+        });
+    </script>
+
+</body>
+</html>
 
 
 
