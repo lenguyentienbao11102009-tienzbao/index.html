@@ -3,250 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locket Gold Uy Tín</title>
+    <title>Locket Gold Service</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background: linear-gradient(135deg, #FFD700, #FF9900);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            color: #333;
             text-align: center;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-            max-width: 420px;
-            width: 100%;
-            transition: all 0.6s ease-in-out;
-            opacity: 0;
-            transform: translateY(-50px);
         }
-
-        .container.show {
-            opacity: 1;
-            transform: translateY(0);
+        .container {
+            padding: 20px;
         }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px black;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #FF5733, #FFB700);
-            color: #fff;
-            padding: 12px 20px;
+        h1, h2, h3 {
             margin: 10px 0;
+        }
+        .btn {
+            padding: 12px 20px;
+            margin: 10px;
+            background: #ff5722;
+            color: #fff;
             border: none;
-            border-radius: 10px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: 0.4s;
-            width: 100%;
-            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
         }
-
         .btn:hover {
-            transform: scale(1.05);
-            background: linear-gradient(90deg, #FF2E00, #FFD500);
+            background: #e64a19;
         }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
-
         .hidden {
             display: none;
         }
-
-        .info, .payment {
-            margin-top: 20px;
-            text-align: left;
-            line-height: 1.6;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
+        .card {
+            background: #fff;
+            margin: 15px auto;
+            padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 85%;
+            max-width: 400px;
         }
-
-        .price {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.15);
+        input {
             padding: 10px;
-            border-radius: 10px;
+            margin: 5px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
         a {
-            color: #FFDD00;
+            color: #ff5722;
             text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .typing {
-            display: inline-block;
-            border-right: 2px solid #fff;
-            animation: blink 0.8s infinite;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        @keyframes blink {
-            0%, 100% { border-color: transparent }
-            50% { border-color: white; }
-        }
-
-        .copy-btn {
-            display: inline-block;
-            margin-top: 8px;
-            background: #28a745;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            color: white;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .copy-btn:hover {
-            background: #218838;
         }
     </style>
 </head>
 <body>
 
-    <!-- Đăng nhập -->
-    <div class="container show" id="login">
-        <h1 class="typing">Đăng nhập Locket Gold</h1>
-        <input type="text" id="username" placeholder="Tên đăng nhập">
-        <input type="password" id="password" placeholder="Mật khẩu">
-        <button class="btn" onclick="login()">Đăng nhập</button>
-        <p>Chưa có tài khoản? <a href="#" onclick="showRegister()">Đăng ký</a></p>
+<div class="container" id="welcome">
+    <h1>Xin chào!</h1>
+    <p>Chào mừng đến với dịch vụ Locket Gold</p>
+    <button class="btn" onclick="showLogin()">Bắt đầu</button>
+</div>
+
+<div class="container hidden" id="login">
+    <h2>Đăng nhập / Đăng ký</h2>
+    <input type="email" id="email" placeholder="Nhập email"><br>
+    <input type="password" id="password" placeholder="Nhập mật khẩu"><br>
+    <button class="btn" onclick="login()">Đăng nhập</button>
+    <button class="btn" onclick="register()">Đăng ký</button>
+</div>
+
+<div class="container hidden" id="main">
+    <h2>Dịch vụ Locket Gold</h2>
+    <div class="card">
+        <h3>Bảng giá</h3>
+        <p>Locket iOS: 20K</p>
+        <p>Locket Android: 15K</p>
+        <p>Bảo hành 12 tháng</p>
+        <p>Không can thiệp ID Apple</p>
+        <p>Bảo mật riêng tư tuyệt đối</p>
     </div>
 
-    <!-- Đăng ký -->
-    <div class="container hidden" id="register">
-        <h1>Đăng ký Locket Gold</h1>
-        <input type="text" id="newUsername" placeholder="Tên đăng nhập">
-        <input type="password" id="newPassword" placeholder="Mật khẩu">
-        <button class="btn" onclick="register()">Tạo tài khoản</button>
-        <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></p>
+    <div class="card">
+        <h3>Chọn dịch vụ</h3>
+        <button class="btn">Locket iOS</button>
+        <button class="btn">Locket Android</button>
     </div>
 
-    <!-- Trang chính -->
-    <div class="container hidden" id="main">
-        <h1>Dịch vụ Locket Gold</h1>
-
-        <div class="price">
-            <p><strong>Locket iOS:</strong> 20K</p>
-            <p><strong>Locket Android:</strong> 15K</p>
-        </div>
-
-        <button class="btn">Làm Locket iOS</button>
-        <button class="btn">Làm Locket Android</button>
-
-        <div class="payment">
-            <h3>Thông tin chuyển khoản:</h3>
-            <p><strong>Ngân hàng:</strong> ACB</p>
-            <p><strong>Chủ tài khoản:</strong> Lê Nguyễn Tiến Bảo</p>
-            <p><strong>Số tài khoản:</strong> <span id="stk">46756097</span></p>
-            <div class="copy-btn" onclick="copySTK()">Copy STK</div>
-            <p><strong>Nội dung CK:</strong> Tên + SĐT</p>
-        </div>
-
-        <div class="info">
-            <p><strong>Bảo hành:</strong> 12 tháng</p>
-            <p><strong>Bảo mật:</strong> Không can thiệp ID Apple, riêng tư tuyệt đối</p>
-            <p><strong>Liên hệ:</strong></p>
-            <p>TikTok: <a href="https://www.tiktok.com/@locketgolduytin2267?_t=ZS-8zi9Un9dPct&_r=1" target="_blank">Xem tại đây</a></p>
-            <p>Zalo: <a href="https://zalo.me/0859135800" target="_blank">0859135800</a></p>
-        </div>
-
-        <footer>© 2025 Locket Gold Uy Tín. All rights reserved.</footer>
+    <div class="card">
+        <h3>Thông tin liên hệ</h3>
+        <p>TikTok: <a href="https://www.tiktok.com/@locketgolduytin2267" target="_blank">locketgolduytin2267</a></p>
+        <p>Zalo: 0859135800</p>
     </div>
 
-    <script>
-        function login() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
-            if(user && pass) {
-                document.getElementById('login').classList.add('hidden');
-                document.getElementById('main').classList.remove('hidden');
-                setTimeout(() => document.getElementById('main').classList.add('show'), 50);
-            } else {
-                alert("Vui lòng nhập đầy đủ thông tin!");
-            }
-        }
+    <div class="card">
+        <h3>Thông tin chuyển khoản</h3>
+        <p>Ngân hàng ACB</p>
+        <p>Số tài khoản: 46756097</p>
+        <p>Chủ tài khoản: Lê Nguyễn Tiến Bảo</p>
+    </div>
+</div>
 
-        function register() {
-            const newUser = document.getElementById("newUsername").value;
-            const newPass = document.getElementById("newPassword").value;
-            if(newUser && newPass) {
-                alert("Tạo tài khoản thành công! Vui lòng đăng nhập.");
-                showLogin();
-            } else {
-                alert("Vui lòng nhập đầy đủ thông tin!");
-            }
-        }
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
 
-        function showRegister() {
-            document.getElementById('login').classList.add('hidden');
-            document.getElementById('register').classList.remove('hidden');
-            setTimeout(() => document.getElementById('register').classList.add('show'), 50);
-        }
+<script>
+  // Config Firebase của bạn
+  const firebaseConfig = {
+    apiKey: "AIzaSyBGZLa316uvnCeXPF3UeKmEsgKFghMTj",
+    authDomain: "locketgold-40f57.firebaseapp.com",
+    projectId: "locketgold-40f57",
+    storageBucket: "locketgold-40f57.appspot.com",
+    messagingSenderId: "1016272793803",
+    appId: "1:1016272793803:web:a4b896242002fb108ce",
+    measurementId: "G-9GBMZYR85H"
+  };
 
-        function showLogin() {
-            document.getElementById('register').classList.add('hidden');
-            document.getElementById('login').classList.remove('hidden');
-            setTimeout(() => document.getElementById('login').classList.add('show'), 50);
-        }
+  // Khởi tạo Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-        function copySTK() {
-            const stk = document.getElementById("stk").innerText;
-            navigator.clipboard.writeText(stk).then(() => {
-                alert("Đã copy số tài khoản: " + stk);
-            });
-        }
-    </script>
+  // Chuyển trang
+  function showLogin() {
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("login").classList.remove("hidden");
+  }
+
+  function showMain() {
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("main").classList.remove("hidden");
+  }
+
+  // Đăng ký
+  function register() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        alert("Đăng ký thành công!");
+        showMain();
+      })
+      .catch(err => alert(err.message));
+  }
+
+  // Đăng nhập
+  function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    auth.signInWithEmailAndPassword(email, password)
+      .then(() => {
+        alert("Đăng nhập thành công!");
+        showMain();
+      })
+      .catch(err => alert(err.message));
+  }
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
