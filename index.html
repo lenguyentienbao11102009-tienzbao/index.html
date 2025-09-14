@@ -1,167 +1,116 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dịch vụ Locket Gold - Làm Locket cho iOS & Android, bảo hành 12 tháng, bảo mật tuyệt đối.">
-  <meta name="keywords" content="Locket Gold, iOS, Android, Bảo hành, Giá rẻ">
-  <meta property="og:title" content="Dịch vụ Locket Gold Uy Tín">
-  <meta property="og:description" content="Làm Locket iOS 20k, Android 15k, bảo hành 12 tháng, bảo mật tuyệt đối.">
-  <meta property="og:type" content="website">
-  <meta name="author" content="Lê Nguyễn Tiến Bảo">
-  <title>Dịch vụ Locket Gold</title>
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif;}
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locket Gold & Tương tác - Bảo</title>
+<style>
     body {
-      background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #ff0080);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-      color: #fff;
-      text-align: center;
-      min-height: 100vh;
-      overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff; /* nền trắng */
+        color: #0077cc; /* chữ xanh */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
     }
-    @keyframes gradient {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .container {
+        text-align: center;
+        max-width: 650px;
+        width: 90%;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
-    h1 {margin-top: 40px; font-size: 2.5rem;}
-
-    /* Icon Locket */
-    .locket-icon {
-      margin: 30px auto;
-      width: 120px;
-      height: 120px;
-      background: url('https://i.ibb.co/6ndK5w1/locket-icon.png') no-repeat center/cover;
-      border-radius: 50%;
-      animation: spin 8s linear infinite, glow 2s ease-in-out infinite alternate;
+    h1 {
+        margin-bottom: 20px;
+        font-size: 28px;
     }
-    @keyframes spin {
-      from {transform: rotate(0deg);}
-      to {transform: rotate(360deg);}
+    .button {
+        background-color: #0077cc;
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s;
     }
-    @keyframes glow {
-      from {box-shadow: 0 0 10px #fff;}
-      to {box-shadow: 0 0 20px #00f2fe;}
+    .button:hover {
+        background-color: #005fa3;
+        transform: scale(1.05);
     }
-
-    /* Nút */
-    .btn {
-      display: inline-block;
-      margin: 20px;
-      padding: 12px 30px;
-      font-size: 1.2rem;
-      color: #fff;
-      background: #2575fc;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
+    .info {
+        margin-top: 30px;
+        text-align: left;
+        background-color: #f0f8ff;
+        padding: 20px;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
     }
-    .btn:hover {background: #6a11cb; transform: scale(1.1);}
-
-    /* Section */
-    .section {display:none; padding:20px; max-width:600px; margin:auto;}
-    .show {display:block; animation: fadeIn 1s;}
-    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
-
-    /* Bảng giá */
-    .price-card {
-      background: rgba(255,255,255,0.1);
-      margin: 15px 0;
-      padding: 15px;
-      border-radius: 15px;
-      font-size: 1.1rem;
+    .info.show {
+        opacity: 1;
+        max-height: 2000px; /* đủ lớn để chứa nội dung */
     }
-
-    /* Icon liên hệ */
-    .social {
-      margin: 10px;
-      display: inline-block;
-      padding: 10px 15px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      transition: 0.3s;
-      color: #fff;
-      text-decoration: none;
+    .info p, .info li {
+        margin: 8px 0;
     }
-    .social:hover {background: #fff; color: #2575fc; transform: scale(1.2);}
-
-    /* Timeline bảo hành */
-    .timeline {text-align:left; margin:20px; list-style:none;}
-    .timeline li {margin:10px 0; padding-left:10px; position:relative;}
-    .timeline li::before {
-      content:'•';
-      position:absolute;
-      left:-10px;
-      color:#00f2fe;
-    }
-
-    /* Footer */
-    footer {margin-top:30px; padding:15px; background:rgba(0,0,0,0.2);}
-    .neon {
-      color:#fff;
-      text-shadow:0 0 5px #fff,0 0 10px #2575fc,0 0 20px #6a11cb;
-      animation: neon 1.5s ease-in-out infinite alternate;
-    }
-    @keyframes neon {
-      from {text-shadow: 0 0 5px #fff;}
-      to {text-shadow: 0 0 15px #2575fc;}
-    }
-
-    /* Responsive */
-    @media(max-width:768px){
-      h1{font-size:1.8rem;}
-      .btn{font-size:1rem; padding:10px 20px;}
-      .locket-icon{width:90px; height:90px;}
-    }
-  </style>
+</style>
 </head>
 <body>
-  <h1>Locket Gold Uy Tín</h1>
-  <div class="locket-icon"></div>
-  <a href="#" class="btn" onclick="start()">Bắt đầu</a>
-
-  <div id="main" class="section">
-    <h2>Bảng giá dịch vụ</h2>
-    <div class="price-card">Locket iOS: 20.000đ</div>
-    <div class="price-card">Locket Android: 15.000đ</div>
-
-    <h2>Liên hệ</h2>
-    <a href="https://www.tiktok.com/@locketgolduytin2267" class="social">TikTok</a>
-    <a href="https://zalo.me/0859135800" class="social">Zalo</a>
-
-    <h2>Thông tin chuyển khoản</h2>
-    <div class="price-card">
-      Ngân hàng ACB<br>
-      Số tài khoản: 46756097<br>
-      Chủ tài khoản: Lê Nguyễn Tiến Bảo
+<div class="container">
+    <h1>Locket Gold & Dịch vụ Tương tác - Bảo</h1>
+    <div class="buttons">
+        <button class="button" onclick="showLocketGold()">Up Locket Gold</button>
+        <button class="button" onclick="showInteraction()">Kéo tương tác Facebook/TikTok</button>
     </div>
+    <div id="info" class="info"></div>
+</div>
 
-    <h2>Bảo hành 12 tháng</h2>
-    <ul class="timeline">
-      <li>Tháng 1-3: Hỗ trợ kỹ thuật</li>
-      <li>Tháng 4-6: Bảo mật nâng cao</li>
-      <li>Tháng 7-9: Cập nhật miễn phí</li>
-      <li>Tháng 10-12: Hỗ trợ 24/7</li>
-    </ul>
+<script>
+function showLocketGold() {
+    const info = document.getElementById('info');
+    info.innerHTML = `
+        <h2>Thông tin Locket Gold</h2>
+        <p><strong>Android:</strong> 15k</p>
+        <p><strong>iOS:</strong> 20k</p>
+        <p><strong>Số tài khoản (STK):</strong> 46756097</p>
+        <p><strong>Nơi liên hệ:</strong> Zalo: 09xxxxxxx</p>
+        <h3>Cam kết 3 không</h3>
+        <ul>
+            <li>Không khóa iPhone, đăng nhập iCloud</li>
+            <li>Không bị khóa tài khoản Locket</li>
+            <li>Không lây nhiễm virus</li>
+        </ul>
+    `;
+    info.classList.add('show');
+}
 
-    <a href="#" class="btn" onclick="back()">Quay lại</a>
-  </div>
-
-  <footer>
-    <p class="neon">Design by Lê Nguyễn Tiến Bảo</p>
-  </footer>
-
-  <script>
-    function start(){
-      document.getElementById('main').classList.add('show');
-    }
-    function back(){
-      document.getElementById('main').classList.remove('show');
-    }
-  </script>
+function showInteraction() {
+    const info = document.getElementById('info');
+    info.innerHTML = `
+        <h2>Dịch vụ tương tác Facebook/TikTok</h2>
+        <p><strong>100 follow:</strong> 4.5k</p>
+        <p><strong>100 tim:</strong> 1k</p>
+        <h3>Thông tin chuyển khoản</h3>
+        <p><strong>STK:</strong> 46756097</p>
+        <p><strong>Ngân hàng:</strong> ACB</p>
+        <p><strong>Chủ tài khoản:</strong> Lê Nguyễn Tiến Bảo</p>
+        <h3>Cam kết 3 không</h3>
+        <ul>
+            <li>Không khóa iPhone, đăng nhập iCloud</li>
+            <li>Không bị khóa tài khoản Locket</li>
+            <li>Không lây nhiễm virus</li>
+        </ul>
+    `;
+    info.classList.add('show');
+}
+</script>
 </body>
 </html>
