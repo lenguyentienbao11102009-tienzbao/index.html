@@ -7,14 +7,15 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #ffffff; /* nền trắng */
-        color: #0077cc; /* chữ xanh */
+        background-color: #ffffff; 
+        color: #0077cc; 
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        overflow-x: hidden;
     }
     .container {
         text-align: center;
@@ -27,6 +28,7 @@
     h1 {
         margin-bottom: 20px;
         font-size: 28px;
+        transition: color 0.5s;
     }
     .button {
         background-color: #0077cc;
@@ -49,17 +51,19 @@
         background-color: #f0f8ff;
         padding: 20px;
         border-radius: 10px;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
         max-height: 0;
         overflow: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: max-height 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
     }
     .info.show {
         opacity: 1;
-        max-height: 2000px; /* đủ lớn để chứa nội dung */
+        max-height: 1000px;
+        transform: translateY(0);
     }
     .info p, .info li {
-        margin: 8px 0;
+        margin: 10px 0;
     }
 </style>
 </head>
@@ -81,7 +85,7 @@ function showLocketGold() {
         <p><strong>Android:</strong> 15k</p>
         <p><strong>iOS:</strong> 20k</p>
         <p><strong>Số tài khoản (STK):</strong> 46756097</p>
-        <p><strong>Nơi liên hệ:</strong> Zalo: 09xxxxxxx</p>
+        <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
         <h3>Cam kết 3 không</h3>
         <ul>
             <li>Không khóa iPhone, đăng nhập iCloud</li>
@@ -98,16 +102,8 @@ function showInteraction() {
         <h2>Dịch vụ tương tác Facebook/TikTok</h2>
         <p><strong>100 follow:</strong> 4.5k</p>
         <p><strong>100 tim:</strong> 1k</p>
-        <h3>Thông tin chuyển khoản</h3>
-        <p><strong>STK:</strong> 46756097</p>
-        <p><strong>Ngân hàng:</strong> ACB</p>
-        <p><strong>Chủ tài khoản:</strong> Lê Nguyễn Tiến Bảo</p>
-        <h3>Cam kết 3 không</h3>
-        <ul>
-            <li>Không khóa iPhone, đăng nhập iCloud</li>
-            <li>Không bị khóa tài khoản Locket</li>
-            <li>Không lây nhiễm virus</li>
-        </ul>
+        <p><strong>Số tài khoản (STK):</strong> 46756097</p>
+        <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
     `;
     info.classList.add('show');
 }
