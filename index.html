@@ -65,7 +65,7 @@
     </style>
 </head>
 <body>
-    <h1>Chào mừng đến với trang web của tôi</h1>
+    <h1>Chào mừng đến với trang wed hỗ trợ up locketgold</h1>
 
     <button id="myButton">Nhấp vào đây</button>
 
@@ -76,6 +76,57 @@
         });
     </script>
 </body>
+<style>
+  body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); /* Thay đổi màu nền gradient */
+    color: #333;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: rgba(255, 255, 255, 0.8); /* Màu nền trong suốt */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s; /* Thêm hiệu ứng xuất hiện mượt mà */
+  }
+  h1 {
+    color: #d6336c;
+  }
+  button {
+    background-color: #d6336c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Hiệu ứng khi di chuột vào */
+  }
+  button:hover {
+    transform: scale(1.1); /* Phóng to nút khi di chuột vào */
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+<script>
+  document.getElementById("myButton").addEventListener("click", function() {
+    alert("Chào mừng bạn đã đến với trang wed hỗ trợ up locket gold!");
+  });
+</script>
+
 
 
 
