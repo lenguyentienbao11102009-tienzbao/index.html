@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locket Gold Service</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        /* Nền chuyển màu động */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', sans-serif;
             color: #fff;
             text-align: center;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff758c, #ff7eb3);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
         }
-        .container {
-            padding: 20px;
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
         }
-        h1, h2, h3 {
-            margin: 10px 0;
-        }
+
+        .container { padding: 20px; }
+        h1, h2, h3 { margin: 10px 0; }
+
+        /* Nút bắt đầu đẹp */
         .btn {
-            padding: 12px 20px;
+            padding: 12px 25px;
             margin: 10px;
             background: #4facfe;
             color: #fff;
@@ -28,13 +39,23 @@
             border-radius: 50px;
             transition: 0.3s;
             font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+
+        .btn i { font-size: 18px; }
+
         .btn:hover {
             background: #00f2fe;
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(255,255,255,0.6);
         }
-        .hidden {
-            display: none;
-        }
+
+        .hidden { display: none; }
+
+        /* Card dịch vụ */
         .card {
             background: #fff;
             color: #333;
@@ -44,33 +65,85 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 85%;
             max-width: 400px;
-            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.3s;
+            animation: fadeUp 0.7s ease forwards;
         }
+
         .card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.5);
         }
-        a {
-            color: #6a11cb;
-            text-decoration: none;
-            font-weight: bold;
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
-        a:hover {
-            text-decoration: underline;
+
+        a { color: #6a11cb; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+
+        /* Hiệu ứng gõ chữ */
+        .typing {
+            display: inline-block;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink 0.7s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #fff; }
+        }
+
+        /* Nút chat nổi */
+        .zalo-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0068ff;
+            color: #fff;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .zalo-chat:hover {
+            background: #0052cc;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
 <div class="container" id="welcome">
-    <h1>Xin chào!</h1>
-    <p>Chào mừng đến với dịch vụ Locket Gold</p>
-    <button class="btn" onclick="startService()">Bắt đầu</button>
+    <h1><i class="fa-solid fa-lock"></i> Locket Gold</h1>
+    <p class="typing">Dịch vụ Locket Gold - Bảo mật - Uy tín - Chuyên nghiệp</p>
+    <br>
+    <button class="btn" onclick="startService()"><i class="fa-solid fa-play"></i> Bắt đầu</button>
 </div>
 
 <div class="container hidden" id="main">
-    <h2>Dịch vụ Locket Gold</h2>
-    <div class="card">
-        <h3>Bảng giá</h3>
+    <h2><i class="fa-solid fa-star"></i> Dịch vụ Locket Gold</h2>
+    <div class="card" style="animation-delay: 0.2s">
+        <h3><i class="fa-solid fa-tags"></i> Bảng giá</h3>
         <p>Locket iOS: 20K</p>
         <p>Locket Android: 15K</p>
         <p>Bảo hành 12 tháng</p>
@@ -78,30 +151,45 @@
         <p>Bảo mật riêng tư tuyệt đối</p>
     </div>
 
-    <div class="card">
-        <h3>Chọn dịch vụ</h3>
-        <button class="btn">Locket iOS</button>
-        <button class="btn">Locket Android</button>
+    <div class="card" style="animation-delay: 0.5s">
+        <h3><i class="fa-solid fa-mobile-screen"></i> Chọn dịch vụ</h3>
+        <button class="btn"><i class="fa-brands fa-apple"></i> Locket iOS</button>
+        <button class="btn"><i class="fa-brands fa-android"></i> Locket Android</button>
     </div>
 
-    <div class="card">
-        <h3>Thông tin liên hệ</h3>
-        <p>TikTok: <a href="https://www.tiktok.com/@locketgolduytin2267" target="_blank">locketgolduytin2267</a></p>
-        <p>Zalo: 0859135800</p>
+    <div class="card" style="animation-delay: 0.8s">
+        <h3><i class="fa-solid fa-phone"></i> Thông tin liên hệ</h3>
+        <p><i class="fa-brands fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@locketgolduytin2267" target="_blank">locketgolduytin2267</a></p>
+        <p><i class="fa-brands fa-facebook-messenger"></i> Zalo: 0859135800</p>
     </div>
 
-    <div class="card">
-        <h3>Thông tin chuyển khoản</h3>
+    <div class="card" style="animation-delay: 1.1s">
+        <h3><i class="fa-solid fa-money-bill-wave"></i> Thông tin chuyển khoản</h3>
         <p>Ngân hàng ACB</p>
         <p>Số tài khoản: 46756097</p>
         <p>Chủ tài khoản: Lê Nguyễn Tiến Bảo</p>
     </div>
 </div>
 
+<!-- Nút chat Zalo nổi -->
+<a href="https://zalo.me/0859135800" target="_blank">
+    <div class="zalo-chat"><i class="fa-brands fa-facebook-messenger"></i></div>
+</a>
+
+<footer>
+    © 2025 Locket Gold - Bảo mật tuyệt đối | Designed by Bảo
+</footer>
+
 <script>
     function startService() {
         document.getElementById("welcome").classList.add("hidden");
-        document.getElementById("main").classList.remove("hidden");
+        const main = document.getElementById("main");
+        main.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const cards = main.querySelectorAll(".card");
+        cards.forEach((card, index) => {
+            card.style.animation = `fadeUp 0.7s ease forwards ${0.3 * index}s`;
+        });
     }
 </script>
 
