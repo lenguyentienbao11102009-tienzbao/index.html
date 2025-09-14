@@ -214,6 +214,19 @@
 
 </body>
 </html>
+account_info = {
+    "Số tài khoản": "46756097",
+    "Ngân hàng": "ACB",
+    "Chủ tài khoản": "Lê Nguyễn Tiến Bảo"
+}
+
+def display_account_info(info):
+    print("--- Thông tin tài khoản ---")
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+display_account_info(account_info)
+
 
 
 
