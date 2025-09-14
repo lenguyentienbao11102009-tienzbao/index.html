@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Locket Gold - Dịch vụ Uy Tín</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Dịch vụ Locket Gold - Giá rẻ, uy tín, bảo hành 12 tháng, hỗ trợ iOS & Android. Liên hệ TikTok & Zalo ngay!">
   <meta name="keywords" content="Locket Gold, Locket iOS, Locket Android, Locket Giá Rẻ, Bảo hành Locket, Locket Gold Uy Tín">
@@ -17,17 +17,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
     /* Reset & Font */
     * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+    html, body {height:100%; overflow-x:hidden;}
+
+    /* Nền động gradient */
     body {
       background: linear-gradient(270deg,#6a11cb,#2575fc,#ff6ec4);
       background-size: 600% 600%;
       animation: gradientBG 15s ease infinite;
-      overflow-x:hidden;
-      color:#fff;
-      text-align:center;
+      color:#fff; text-align:center; position:relative;
     }
     @keyframes gradientBG {
       0%{background-position:0% 50%}
@@ -35,45 +37,79 @@
       100%{background-position:0% 50%}
     }
 
-    h1 {font-size:2.5rem; margin:20px 0; text-shadow: 0 0 15px #fff;}
+    /* Particles canvas */
+    #particles-js {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+
+    h1 {
+      font-size:2.5rem; margin:20px 0; text-shadow: 0 0 15px #fff;
+      animation: fadeInDown 2s;
+    }
+    @keyframes fadeInDown {from{opacity:0; transform:translateY(-50px);} to{opacity:1; transform:translateY(0);}}
+
+    /* Nút bắt đầu */
     .btn {
       display:inline-block; margin:20px auto; padding:15px 40px; font-size:1.3rem;
       background:#fff; color:#2575fc; border:none; border-radius:50px; cursor:pointer;
       transition:0.3s; box-shadow:0 0 15px #fff;
     }
-    .btn:hover {transform:scale(1.1); background:#2575fc; color:#fff; box-shadow:0 0 25px #2575fc;}
+    .btn:hover {
+      transform:scale(1.1); background:#2575fc; color:#fff;
+      box-shadow:0 0 25px #2575fc, 0 0 50px #2575fc;
+    }
 
-    .section {display:none; padding:30px 20px; max-width:700px; margin:auto;}
-    .show {display:block; animation:fadeIn 1s;}
+    /* Section nội dung */
+    .section {
+      display:none; padding:30px 20px; max-width:800px; margin:30px auto;
+      animation:fadeIn 1s;
+    }
+    .show {display:block;}
     @keyframes fadeIn {from{opacity:0; transform:translateY(50px)} to{opacity:1; transform:translateY(0)}}
 
+    /* Card giá */
     .price-card {
       background:rgba(255,255,255,0.1); border-radius:15px; padding:20px; margin:20px 0;
       box-shadow:0 0 20px rgba(0,0,0,0.3); backdrop-filter:blur(10px);
+      transition:0.3s;
     }
+    .price-card:hover {transform:scale(1.05);}
     .price-card h2 {margin-bottom:10px; font-size:1.5rem;}
-
-    /* Icon */
-    .icons a {
-      display:inline-block; margin:15px; font-size:1.5rem; padding:15px;
-      background:rgba(255,255,255,0.2); border-radius:50%; transition:0.4s; text-decoration:none; color:#fff;
-    }
-    .icons a:hover {transform:rotate(15deg) scale(1.2); background:#ff6ec4; box-shadow:0 0 20px #fff;}
-
-    /* Form */
-    form {margin:20px 0; display:flex; flex-direction:column; gap:15px;}
-    input {
-      padding:10px; border:none; border-radius:8px; outline:none;
-      background:rgba(255,255,255,0.2); color:#fff; text-align:center;
-    }
 
     /* Timeline bảo hành */
     .timeline {text-align:left; margin:20px 0;}
     .timeline div {
       margin:10px 0; padding:10px; background:rgba(255,255,255,0.1); border-radius:8px;
+      transition:0.3s; position:relative; padding-left:40px;
+    }
+    .timeline div::before {
+      content:""; position:absolute; left:10px; top:15px;
+      width:10px; height:10px; background:#fff; border-radius:50%;
+      box-shadow:0 0 10px #fff;
+    }
+    .timeline div:hover {transform:translateX(10px); background:#2575fc;}
+
+    /* Form liên hệ */
+    form {margin:20px 0; display:flex; flex-direction:column; gap:15px;}
+    input {
+      padding:10px; border:none; border-radius:8px; outline:none;
+      background:rgba(255,255,255,0.2); color:#fff; text-align:center;
       transition:0.3s;
     }
-    .timeline div:hover {transform:scale(1.05); background:#2575fc;}
+    input:focus {background:rgba(255,255,255,0.3); transform:scale(1.05);}
+
+    /* Icon TikTok, Zalo */
+    .icons a {
+      display:inline-block; margin:15px; font-size:1.5rem; padding:15px;
+      background:rgba(255,255,255,0.2); border-radius:50%; transition:0.4s;
+      text-decoration:none; color:#fff;
+      box-shadow:0 0 10px #fff;
+    }
+    .icons a:hover {
+      transform:rotate(15deg) scale(1.2);
+      background:#ff6ec4; box-shadow:0 0 20px #fff, 0 0 40px #ff6ec4;
+    }
+
+    /* Nút quay về */
+    .back-btn {margin-top:20px;}
 
     /* Footer */
     footer {
@@ -88,60 +124,82 @@
 </head>
 <body>
 
-  <h1>Locket Gold Dịch Vụ Uy Tín</h1>
-  <button class="btn" onclick="startApp()">Bắt đầu</button>
+<div id="particles-js"></div>
 
-  <!-- Nội dung chính -->
-  <div id="main" class="section">
-    <div class="price-card" data-aos="fade-up">
-      <h2>Bảng Giá Dịch Vụ</h2>
-      <p>Locket iOS: 20k</p>
-      <p>Locket Android: 15k</p>
-      <p>Bảo hành 12 tháng, không can thiệp ID Apple, bảo mật tuyệt đối</p>
-    </div>
+<h1>Locket Gold Dịch Vụ Uy Tín</h1>
+<button class="btn" onclick="startApp()">Bắt đầu</button>
 
-    <div class="timeline" data-aos="fade-up">
-      <h2>Chế Độ Bảo Hành</h2>
-      <div>Tháng 1-3: Hỗ trợ miễn phí</div>
-      <div>Tháng 4-6: Bảo trì định kỳ</div>
-      <div>Tháng 7-9: Kiểm tra nâng cấp</div>
-      <div>Tháng 10-12: Gia hạn dịch vụ</div>
-    </div>
-
-    <form data-aos="fade-up">
-      <h2>Liên Hệ Ngay</h2>
-      <input type="text" placeholder="Nhập tên của bạn">
-      <input type="text" placeholder="Số điện thoại/Zalo">
-    </form>
-
-    <div class="icons" data-aos="zoom-in">
-      <a href="https://www.tiktok.com/@locketgolduytin2267?_t=ZS-8zi9Un9dPct&_r=1">TikTok</a>
-      <a href="https://zalo.me/0859135800">Zalo</a>
-    </div>
-
-    <button class="btn" onclick="backHome()">Quay về</button>
+<!-- Nội dung chính -->
+<div id="main" class="section">
+  <div class="price-card" data-aos="fade-up">
+    <h2>Bảng Giá Dịch Vụ</h2>
+    <p>Locket iOS: 20k</p>
+    <p>Locket Android: 15k</p>
+    <p>Bảo hành 12 tháng, không can thiệp ID Apple, bảo mật tuyệt đối</p>
   </div>
 
-  <footer>Design by Lê Nguyễn Tiến Bảo</footer>
+  <div class="timeline" data-aos="fade-up">
+    <h2>Chế Độ Bảo Hành</h2>
+    <div>Tháng 1-3: Hỗ trợ miễn phí</div>
+    <div>Tháng 4-6: Bảo trì định kỳ</div>
+    <div>Tháng 7-9: Kiểm tra nâng cấp</div>
+    <div>Tháng 10-12: Gia hạn dịch vụ</div>
+  </div>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-    function startApp(){
+  <form data-aos="fade-up">
+    <h2>Liên Hệ Ngay</h2>
+    <input type="text" placeholder="Nhập tên của bạn">
+    <input type="text" placeholder="Số điện thoại/Zalo">
+  </form>
+
+  <div class="icons" data-aos="zoom-in">
+    <a href="https://www.tiktok.com/@locketgolduytin2267?_t=ZS-8zi9Un9dPct&_r=1">TikTok</a>
+    <a href="https://zalo.me/0859135800">Zalo</a>
+  </div>
+
+  <button class="btn back-btn" onclick="backHome()">Quay về</button>
+</div>
+
+<footer>Design by Lê Nguyễn Tiến Bảo</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+
+  function startApp(){
+    gsap.to("h1",{opacity:0, y:-50, duration:1});
+    gsap.to(".btn",{opacity:0, y:50, duration:1, onComplete:()=>{
       document.querySelector('h1').style.display='none';
       document.querySelector('.btn').style.display='none';
       document.getElementById('main').classList.add('show');
+      gsap.from("#main",{opacity:0, y:50, duration:1});
+    }});
+  }
+
+  function backHome(){
+    document.getElementById('main').classList.remove('show');
+    document.getElementById('main').style.display='none';
+    document.querySelector('h1').style.display='block';
+    document.querySelector('.btn').style.display='inline-block';
+    gsap.from("h1",{opacity:0, y:-50, duration:1});
+    gsap.from(".btn",{opacity:0, y:50, duration:1});
+  }
+
+  // Footer hiệu ứng lặp
+  gsap.from("footer",{opacity:0, duration:2, y:50, repeat:-1, yoyo:true});
+
+  // Particles nền
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {"value":50},
+      "size": {"value":3},
+      "move": {"speed":1},
+      "line_linked": {"enable":true},
+      "opacity": {"value":0.5}
     }
-    function backHome(){
-      document.querySelector('h1').style.display='block';
-      document.querySelector('.btn').style.display='inline-block';
-      document.getElementById('main').classList.remove('show');
-      document.getElementById('main').style.display='none';
-    }
-    // Hiệu ứng chữ neon footer
-    gsap.from("footer",{opacity:0, duration:2, y:50, repeat:-1, yoyo:true});
-  </script>
+  });
+</script>
 
 </body>
 </html>
