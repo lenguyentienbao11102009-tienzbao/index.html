@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienzbaouplocketgold</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffcc70, #ff8177);
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        p {
+            font-size: 20px;
+        }
+        button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Tienzbaouplocketgold</h1>
+        <p>Website đầu tiên của bạn trên GitHub Pages 🎉</p>
+        <button onclick="alert('Chào mừng bạn đến với website!')">Bấm vào đây</button>
+    </header>
+</body>
+</html>
