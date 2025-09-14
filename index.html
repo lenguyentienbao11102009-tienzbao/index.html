@@ -47,3 +47,36 @@
     </header>
 </body>
 </html>
+<head>
+    <style>
+        /* CSS của bạn ở đây */
+        body {
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            transition: color 0.3s; /* Hiệu ứng chuyển đổi màu */
+        }
+        h1:hover {
+            color: #ff5733; /* Khi di chuột vào, màu sẽ đổi */
+        }
+    </style>
+</head>
+<body>
+    <h1>Chào mừng đến với trang web của tôi</h1>
+
+    <button id="myButton">Nhấp vào đây</button>
+
+    <script>
+        // JavaScript của bạn ở đây
+        document.getElementById("myButton").addEventListener("click", function() {
+            alert("Bạn đã nhấp vào nút!");
+        });
+    </script>
+</body>
+
+
+
+
