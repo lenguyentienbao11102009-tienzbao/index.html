@@ -12,7 +12,7 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
         min-height: 100vh;
         overflow-x: hidden;
@@ -24,11 +24,17 @@
         padding: 30px;
         border-radius: 12px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 50px;
     }
     h1 {
-        margin-bottom: 20px;
         font-size: 28px;
-        transition: color 0.5s;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-20px);}
+        to {opacity: 1; transform: translateY(0);}
     }
     .button {
         background-color: #0077cc;
@@ -73,17 +79,24 @@
     a:hover {
         color: #005fa3;
     }
+    footer {
+        margin-top: 40px;
+        color: #0077cc;
+        font-size: 14px;
+    }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Locket Gold & Dịch vụ Tương tác - Bảo</h1>
+    <h1>Chào bạn đến với trang web của chúng tôi!</h1>
     <div class="buttons">
         <button class="button" onclick="showLocketGold()">Up Locket Gold</button>
         <button class="button" onclick="showInteraction()">Kéo tương tác Facebook/TikTok</button>
+        <button class="button" onclick="showBank()">Tài khoản ngân hàng</button>
     </div>
     <div id="info" class="info"></div>
 </div>
+<footer>Design by TIẾN BẢO</footer>
 
 <script>
 function showLocketGold() {
@@ -94,7 +107,6 @@ function showLocketGold() {
         <p><strong>iOS:</strong> 20k</p>
         <p><strong>Số tài khoản (STK):</strong> 46756097</p>
         <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
-        <p><a href="https://example.com/chuyen-khoan" target="_blank">Xem thông tin chuyển khoản ngân hàng</a></p>
         <h3>Cam kết 3 không</h3>
         <ul>
             <li>Không khóa iPhone, đăng nhập iCloud</li>
@@ -113,6 +125,17 @@ function showInteraction() {
         <p><strong>100 tim:</strong> 1k</p>
         <p><strong>Số tài khoản (STK):</strong> 46756097</p>
         <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
+    `;
+    info.classList.add('show');
+}
+
+function showBank() {
+    const info = document.getElementById('info');
+    info.innerHTML = `
+        <h2>Thông tin chuyển khoản ngân hàng</h2>
+        <p><strong>Ngân hàng:</strong> ACB</p>
+        <p><strong>Chủ tài khoản:</strong> LÊ NGUYỄN TIẾN BẢO</p>
+        <p><strong>STK:</strong> 46756097</p>
     `;
     info.classList.add('show');
 }
