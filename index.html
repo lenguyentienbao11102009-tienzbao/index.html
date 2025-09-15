@@ -1,156 +1,159 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Locket Gold & Tương tác - TIẾN BẢO</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dịch vụ Locket Gold, Facebook, TikTok uy tín - Bảo hành 12 tháng - Giá rẻ nhất thị trường" />
+  <meta name="author" content="Lê Nguyễn Tiến Bảo" />
+  <title>Dịch vụ Locket Gold & Mạng xã hội</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif;}
     body {
-        font-family: 'Roboto', Arial, sans-serif;
-        background-color: #ffffff;
-        color: #0077cc;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
+      background: #f8f9fa;
+      color: #333;
+      text-align: center;
+      transition: background 0.5s;
     }
-    .container {
-        text-align: center;
-        max-width: 700px;
-        width: 90%;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        margin-top: 50px;
-        background-color: #f9f9f9;
+    header {padding: 50px 20px;}
+    header h1 {font-size: 2em; margin-bottom: 20px; color: #2c3e50;}
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin-top: 10px;
+      background: #4a69bd;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
     }
-    h1 {
-        font-size: 30px;
-        margin-bottom: 30px;
-        opacity: 0;
-        animation: fadeIn 2s forwards;
+    .btn:hover {background: #1e3799;}
+    section {padding: 40px 20px; display: none; animation: fadeIn 0.8s;}
+    section.active {display: block;}
+    @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+    .service-card {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 320px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
     }
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(-20px);}
-        to {opacity: 1; transform: translateY(0);}
+    .service-card:hover {transform: translateY(-3px);}
+    h2 {margin-bottom: 15px; color: #4a69bd;}
+    ul {list-style: none; margin-top: 10px;}
+    ul li {margin: 8px 0;}
+    img.service-img {
+      width: 80px; margin-bottom: 10px; border-radius: 10px;
     }
-    .button {
-        background-color: #0077cc;
-        color: #fff;
-        border: none;
-        padding: 15px 35px;
-        margin: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 500;
-        transition: all 0.3s;
+    footer {margin-top: 40px; padding: 15px; font-size: 0.9em; color: #777;}
+    .social-icons img {
+      width: 35px; margin: 0 10px; border-radius: 50%; transition: 0.3s;
     }
-    .button:hover {
-        background-color: #005fa3;
-        transform: scale(1.05);
+    .social-icons img:hover {transform: scale(1.1); box-shadow: 0 0 10px #4a69bd;}
+    form {
+      background: #fff; max-width: 400px; margin: 20px auto; padding: 20px; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
     }
-    .info {
-        margin-top: 30px;
-        text-align: left;
-        background-color: #ffffff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: max-height 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
+    form label {display: block; margin-bottom: 5px; color: #4a69bd;}
+    form input, form textarea {
+      width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;
     }
-    .info.show {
-        opacity: 1;
-        max-height: 1000px;
-        transform: translateY(0);
+    form button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #4a69bd;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .info p, .info li {
-        margin: 12px 0;
-        font-size: 16px;
-    }
-    .info ul li {
-        opacity: 0;
-        transform: translateX(-20px);
-        animation: fadeSlide 0.5s forwards;
-    }
-    a { color: #0077cc; text-decoration: underline; transition: color 0.3s; }
-    a:hover { color: #005fa3; }
-    footer { margin-top: 40px; color: #0077cc; font-size: 14px; text-align: center; }
-</style>
+    form button:hover {background: #1e3799;}
+  </style>
 </head>
 <body>
-<div class="container">
-    <h1>Chào bạn đến với trang web của chúng tôi!</h1>
-    <div class="buttons">
-        <button class="button" onclick="showSection('locket')">Up Locket Gold</button>
-        <button class="button" onclick="showSection('interaction')">Dịch vụ tương tác</button>
-        <button class="button" onclick="showSection('bank')">Tài khoản ngân hàng</button>
-    </div>
-    <div id="info" class="info"></div>
-</div>
-<footer>Design by TIẾN BẢO</footer>
+
+<header>
+  <h1>Chào mừng đến với Dịch vụ của chúng tôi!</h1>
+  <a href="#" class="btn" onclick="startApp()">Bắt đầu</a>
+</header>
+
+<section id="services">
+  <h2>Dịch vụ của chúng tôi</h2>
+  <div class="service-card">
+    <img class="service-img" src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Locket Gold">
+    <h3>Locket Gold</h3>
+    <ul>
+      <li>iOS: 20k</li>
+      <li>Android: 15k</li>
+      <li>Bảo hành 12 tháng</li>
+    </ul>
+  </div>
+  <div class="service-card">
+    <img class="service-img" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    <h3>Facebook</h3>
+    <ul>
+      <li>1000 Follow: 40k</li>
+      <li>1000 Tim: 100k</li>
+    </ul>
+  </div>
+  <div class="service-card">
+    <img class="service-img" src="https://cdn-icons-png.flaticon.com/512/3046/3046127.png" alt="TikTok">
+    <h3>TikTok</h3>
+    <ul>
+      <li>1000 Tim: 100k</li>
+    </ul>
+  </div>
+</section>
+
+<section id="warranty">
+  <h2>Chế độ Bảo hành</h2>
+  <p>Bảo hành 12 tháng cho tất cả dịch vụ.</p>
+  <p>Không can thiệp ID Apple, bảo mật tuyệt đối.</p>
+</section>
+
+<section id="contact">
+  <h2>Liên hệ</h2>
+  <div class="social-icons">
+    <a href="https://www.tiktok.com/@locketgolduytin2267" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046127.png" alt="TikTok">
+    </a>
+    <a href="https://zalo.me/0859135800" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="Zalo">
+    </a>
+  </div>
+  <form onsubmit="sendEmail(event)">
+    <label>Họ và tên:</label>
+    <input type="text" id="name" required>
+    <label>Email:</label>
+    <input type="email" id="email" required>
+    <label>Nội dung:</label>
+    <textarea id="message" rows="4" required></textarea>
+    <button type="submit">Gửi liên hệ</button>
+  </form>
+</section>
+
+<footer>
+  Design by <strong>Lê Nguyễn Tiến Bảo</strong>
+</footer>
 
 <script>
-function showSection(section) {
-    const info = document.getElementById('info');
-    info.classList.remove('show');
-    // Ẩn nội dung cũ trước khi hiển thị mới
-    setTimeout(() => {
-        if(section === 'locket') {
-            info.innerHTML = `
-                <h2>Thông tin Locket Gold</h2>
-                <p><strong>Android:</strong> 15k</p>
-                <p><strong>iOS:</strong> 20k</p>
-                <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
-                <h3>Cam kết 3 không</h3>
-                <ul>
-                    <li>Không khóa iPhone, đăng nhập iCloud</li>
-                    <li>Không bị khóa tài khoản Locket</li>
-                    <li>Không lây nhiễm virus</li>
-                </ul>
-            `;
-        } else if(section === 'interaction') {
-            info.innerHTML = `
-                <h2>Dịch vụ tương tác Facebook/TikTok</h2>
-                <ul>
-                    <li><strong>100 follow:</strong> 4.5k</li>
-                    <li><strong>100 tim:</strong> 1k</li>
-                </ul>
-                <p><strong>Liên hệ Zalo:</strong> 0859135800</p>
-            `;
-        } else if(section === 'bank') {
-            info.innerHTML = `
-                <h2>Thông tin chuyển khoản ngân hàng</h2>
-                <p><strong>Ngân hàng:</strong> ACB</p>
-                <p><strong>Chủ tài khoản:</strong> LÊ NGUYỄN TIẾN BẢO</p>
-                <p><strong>STK:</strong> 46756097</p>
-            `;
-        }
-        info.classList.add('show');
-        animateListItems();
-    }, 300); // thời gian ẩn cũ
-}
+  function startApp() {
+    document.querySelector('header').style.display = 'none';
+    document.querySelectorAll('section').forEach(sec => sec.classList.add('active'));
+  }
 
-function animateListItems() {
-    const items = document.querySelectorAll('.info ul li');
-    items.forEach((li, index) => {
-        li.style.animationDelay = `${index * 0.3}s`;
-    });
-}
+  function sendEmail(e) {
+    e.preventDefault();
+    alert("Thông tin của bạn đã được gửi đến: lenguyentienbao11102009@gmail.com");
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+  }
 </script>
 
-<style>
-@keyframes fadeSlide {
-    from {opacity: 0; transform: translateX(-20px);}
-    to {opacity: 1; transform: translateX(0);}
-}
-</style>
 </body>
 </html>
