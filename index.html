@@ -8,29 +8,15 @@
   <meta name="author" content="Lê Nguyễn Tiến Bảo" />
   <title>Dịch vụ Locket Gold & MXH | Uy tín - Giá rẻ</title>
 
-  <!-- Dữ liệu cấu trúc SEO cho Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Locket Gold & MXH",
-    "provider": {
-      "@type": "Person",
-      "name": "Lê Nguyễn Tiến Bảo"
-    },
-    "areaServed": "Việt Nam",
-    "description": "Dịch vụ Locket Gold, Facebook, TikTok uy tín - Bảo hành 12 tháng - Giá rẻ nhất."
-  }
-  </script>
-
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
     body {background: #f8f9fa; color: #333; text-align: center; padding: 20px;}
-    h1 {margin: 20px 0; color: #2c3e50;}
+    h1 {margin: 20px 0; color: #2c3e50; opacity: 0; transform: translateY(-20px); animation: fadeInDown 1s forwards;}
     .btn {
       display: inline-block; padding: 10px 20px; margin: 10px 0;
       background: #4a69bd; color: #fff; border-radius: 25px;
       text-decoration: none; transition: 0.3s;
+      opacity: 0; transform: translateY(20px); animation: fadeInUp 1s 0.5s forwards;
     }
     .btn:hover {background: #1e3799;}
     .list {margin: 20px auto; max-width: 400px; text-align: left;}
@@ -38,7 +24,9 @@
       background: #fff; padding: 15px; margin: 10px 0;
       border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       cursor: pointer; transition: 0.3s;
+      opacity: 0; transform: translateX(-50px);
     }
+    .item.show {animation: slideIn 0.6s forwards;}
     .item:hover {background: #f1f2f6;}
     .details {
       max-height: 0; overflow: hidden;
@@ -53,6 +41,17 @@
     a {color: #4a69bd; text-decoration: none;}
     a:hover {text-decoration: underline;}
     footer {margin-top: 30px; font-size: 14px; color: #555;}
+
+    /* Hiệu ứng keyframes */
+    @keyframes fadeInDown {
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideIn {
+      to {opacity: 1; transform: translateX(0);}
+    }
   </style>
 </head>
 <body>
@@ -88,7 +87,16 @@
 <script>
   function startApp() {
     document.querySelector('.btn').style.display = 'none';
-    document.getElementById('services').style.display = 'block';
+    const services = document.getElementById('services');
+    services.style.display = 'block';
+
+    // Hiệu ứng chạy vào từng item
+    const items = document.querySelectorAll('.item');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 200); // delay từng item
+    });
   }
 
   function toggleDetails(id) {
